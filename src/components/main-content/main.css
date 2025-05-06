@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  background-color: #2f2f2f;
+  padding: 20px;
+  padding-top: 160px;
+}
+
+/* CATEGORY BOXES */
+.top-categories {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.category-box {
+  background-color: #ffffff;
+  height: 100px;
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.category-box:hover {
+  transform: scale(1.05);
+}
+
+.category-box img {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+}
+
+/* SALE STRIP */
+.sale-strip {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* FEATURED PRODUCTS */
+.featured-products {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 50px 0;
+}
+
+.product-feature {
+  background-color: white;
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+}
+
+.product-feature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.feature-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(0px);
+  text-align: center;
+  padding: 10px;
+}
+
+.product-feature:hover .feature-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+  backdrop-filter: blur(2px);
+}
+
+/* PRODUCT GRID */
+.grid-title {
+  height: 100px;
+  background-color: rgb(90, 90, 90);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0px;
+  border-radius: 18px;
+}
+
+.title-of-grid {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: black;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 1s ease;
+  display: block;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+}
+
+/* PROMO */
+.promo-section {
+  background-color: #555;
+  height: 100px;
+  margin-bottom: 50px;
+  border-radius: 8px;
+}
+
+/* FOOTER */
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-line {
+  background-color: #ccc;
+  height: 4px;
+  width: 80%;
+}
+
+/* DOTS FOR CAROUSEL OR INDICATORS */
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.footer-section p, 
+.footer-section ul {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
