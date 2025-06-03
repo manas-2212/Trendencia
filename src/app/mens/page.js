@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import './mens.css';
-
+import styles from './mens.module.css';
+import Link from 'next/link';
 
 const allProducts = [
   { id: 1, name: "Classic White T-Shirt", category: "Topwear", price: 799, image: "/mens white.jpg" },
@@ -22,13 +22,6 @@ const MensPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortOrder, setSortOrder] = useState('default');
 
-  const handleCategoryChange = (category) => setSelectedCategory(category);
-
-  const handleSortChange = (e) => setSortOrder(e.target.value);
-
-
-
-  
   const filteredProducts = allProducts
     .filter(product => selectedCategory === 'All' || product.category === selectedCategory)
     .sort((a, b) => {
@@ -37,43 +30,46 @@ const MensPage = () => {
       return 0;
     });
 
-
-
-
   return (
-    <div className="mens-container">
-      <div className="sidebar">
-        <h2>Filter</h2>
-        <h4>Category</h4>
-        {categories.map(category => (
-          <div key={category}>
-            <input
-              type="radio"
-              name="category"
-              value={category}
-              checked={selectedCategory === category}
-              onChange={() => handleCategoryChange(category)}
-            />
-            <label>{category}</label>
-          </div>
-        ))}
+    <div className={styles['mens-page']}>
+      <div className={styles['top-bar']}>
+        <Link href="./"><div className="page-title">Trendencia</div></Link>
+        <button className={styles['top-cart-btn']}>Cart</button>
       </div>
 
-      <div className="products-section">
-        <div className="products-header">
-          <h1>Men's Clothing</h1>
-
-        </div>
-
-        <div className="products-grid">
-          {filteredProducts.map(product => (
-            <div key={product.id} className="product-card">
-              <img src={product.image} alt={product.name} />
-              <h3>{product.name}</h3>
-              <p>₹{product.price}</p>
-              <button>Add to Cart</button>
+      <div className={styles['mens-container']}>
+        <div className={styles.sidebar}>
+          <h2>Filter</h2>
+          <h4>Category</h4>
+          {categories.map(category => (
+            <div key={category}>
+              <input
+                type="radio"
+                name="category"
+                value={category}
+                checked={selectedCategory === category}
+                onChange={() => setSelectedCategory(category)}
+              />
+              <label>{category}</label>
             </div>
           ))}
+        </div>
+
+        <div className={styles['products-section']}>
+          <div className={styles['products-header']}>
+            <h1>Men's Clothing</h1>
+          </div>
+
+          <div className={styles['products-grid']}>
+            {filteredProducts.map(product => (
+              <div key={product.id} className={styles['product-card']}>
+                <img src={product.image} alt={product.name} />
+                <h3>{product.name}</h3>
+                <p>₹{product.price}</p>
+                <button>Add to Cart</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link'
 import './main.css';
 
+
+
 const productImages = [
   '/tshirt.jpg', '/shirt.jpg', '/goggles.jpg', '/jeans.jpeg',
   '/lingerie.jpg', '/shoes.jpeg', '/Sports.jpeg', '/Jacket.avif',
@@ -10,6 +12,7 @@ const productImages = [
 
 const Main = () => {
   return (
+    
     <div className="main-container">
       <div className="top-categories">
         <div className="category-box">
