@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap');
 
 
-body {
+.body {
   background-color: #ffe6f0;
   background-image:
     radial-gradient(#ffb3d9 5px, transparent 1px),
