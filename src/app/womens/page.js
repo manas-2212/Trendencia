@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from './womens.module.css';
 import Link from 'next/link';
+import { useCart } from '../CartContext';
 
 const allProducts = [
   { id: 1, name: "Floral Print Dress", category: "Dresses", price: 1299, image: "/floral.jpg" },
@@ -20,6 +21,7 @@ const categories = ['All', 'Topwear', 'Bottomwear', 'Outerwear', 'Dresses', 'Eth
 
 const WomensPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const { cart, addToCart } = useCart();
 
   const filteredProducts = allProducts
     .filter(product => selectedCategory === 'All' || product.category === selectedCategory);
@@ -27,8 +29,15 @@ const WomensPage = () => {
   return (
     <div className={styles['womens-page']}>
       <div className={styles['top-bar']}>
-        <Link href="./"><div className="page-title">Trendencia</div></Link>
-        <button className={styles['top-cart-btn']}>Cart</button>
+        <div className="page-title">Trendencia</div>
+        <div className={styles['cart-icon']}>
+          <Link href="/cart">
+            <button className={styles['top-cart-btn']}>Cart</button>
+          </Link>
+          {cart.length > 0 && (
+            <div className={styles['cart-badge']}>{cart.length}</div>
+          )}
+        </div>
       </div>
 
       <div className={styles['mens-container']}>
@@ -36,18 +45,18 @@ const WomensPage = () => {
           <h2>Filter</h2>
           <h4>Category</h4>
           {categories.map(category => (
-          <div key={category}>
-            <input
-              type="radio"
-              id={`category-${category}`}
-              name="category"
-              value={category}
-              checked={selectedCategory === category}
-              onChange={() => setSelectedCategory(category)}
-            />
-            <label htmlFor={`category-${category}`}>{category}</label>
-          </div>
-        ))}
+            <div key={category}>
+              <input
+                type="radio"
+                id={`category-${category}`}
+                name="category"
+                value={category}
+                checked={selectedCategory === category}
+                onChange={() => setSelectedCategory(category)}
+              />
+              <label htmlFor={`category-${category}`}>{category}</label>
+            </div>
+          ))}
         </div>
 
         <div className={styles['products-section']}>
@@ -62,7 +71,7 @@ const WomensPage = () => {
                 <img src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
                 <p>₹{product.price}</p>
-                <button>Add to Cart</button>
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             ))}
           </div>

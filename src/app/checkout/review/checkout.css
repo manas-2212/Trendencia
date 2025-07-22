@@ -1,0 +1,60 @@
+.checkout-page {
+    padding: 60px;
+    max-width: 600px;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f9;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  }
+  
+  .checkout-page h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .checkout-form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background: #fff;
+    color: black;
+  }
+  
+  .continue-btn, .pay-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #222;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .continue-btn:hover, .pay-btn:hover {
+    background-color: #444;
+  }
+  
+  .review-section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    color: rgb(93, 93, 93);
+  }
+  
+  .cart-review-item {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  

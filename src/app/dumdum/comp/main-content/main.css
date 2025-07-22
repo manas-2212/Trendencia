@@ -4,18 +4,19 @@ body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9; /* Light subtle background */
+  background-color: #f9f9f9; 
   color: #333;
 }
 
 .main-container {
   padding: 24px 40px;
-  padding-top: 160px; /* Keep space for fixed navbar */
+  padding-top: 0; 
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* --- Top Categories --- */
+
+
 .top-categories {
   display: flex;
   justify-content: space-between;
@@ -49,9 +50,9 @@ body {
   user-select: none;
 }
 
-/* --- Sale Strip --- */
+
 .sale-strip {
-  background-color: #e63946; /* softer red */
+  background-color: #e63946;
   color: white;
   padding: 14px 0;
   text-align: center;
@@ -63,7 +64,7 @@ body {
   user-select: none;
 }
 
-/* --- Featured Products --- */
+
 .featured-products {
   display: flex;
   gap: 20px;
@@ -121,7 +122,6 @@ body {
   backdrop-filter: blur(4px);
 }
 
-/* --- Grid Title --- */
 .grid-title {
   display: flex;
   align-items: center;
@@ -141,7 +141,7 @@ body {
   user-select: none;
 }
 
-/* --- Product Grid --- */
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -176,7 +176,7 @@ body {
   transform: scale(1.06);
 }
 
-/* --- Footer --- */
+
 .footer-info {
   background-color: #fafafa;
   padding: 40px 0 20px;
@@ -246,20 +246,22 @@ body {
 }
 
 .social-icons a {
-  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  user-select: none;
+  color: inherit;
+  margin-bottom: 8px;
 }
 
-.social-icons a:hover {
-  background-color: #0070f3;
-  color: white;
+.social-icons img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
-/* Footer copyright text */
+
 .footer-info p {
   text-align: center;
   font-size: 13px;

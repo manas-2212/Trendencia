@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import styles from './mens.module.css';
 import Link from 'next/link';
+import { useWishlist } from '../WishlistContext';
+import { useCart } from '../CartContext';
 
 const allProducts = [
   { id: 1, name: "Classic White T-Shirt", category: "Topwear", price: 799, image: "/mens white.jpg" },
@@ -21,6 +23,8 @@ const categories = ['All', 'Topwear', 'Bottomwear', 'Outerwear'];
 const MensPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortOrder, setSortOrder] = useState('default');
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const { addToCart, cart } = useCart();
 
   const filteredProducts = allProducts
     .filter(product => selectedCategory === 'All' || product.category === selectedCategory)
@@ -30,11 +34,18 @@ const MensPage = () => {
       return 0;
     });
 
+  const isInWishlist = (productId) => wishlist.some(item => item.id === productId);
+
   return (
     <div className={styles['mens-page']}>
       <div className={styles['top-bar']}>
-        <Link href="./"><div className="page-title">Trendencia</div></Link>
-        <button className={styles['top-cart-btn']}>Cart</button>
+        <div className="page-title">Trendencia</div>
+        <div className={styles['cart-wrapper']}>
+          <Link href="/cart">
+            <button className={styles['top-cart-btn']}>Cart</button>
+          </Link>
+          {cart.length > 0 && <div className={styles['cart-count']}>{cart.length}</div>}
+        </div>
       </div>
 
       <div className={styles['mens-container']}>
@@ -45,19 +56,21 @@ const MensPage = () => {
             <div key={category}>
               <input
                 type="radio"
+                id={`category-${category}`}
                 name="category"
                 value={category}
                 checked={selectedCategory === category}
                 onChange={() => setSelectedCategory(category)}
               />
-              <label>{category}</label>
+              <label htmlFor={`category-${category}`}>{category}</label>
             </div>
           ))}
         </div>
 
         <div className={styles['products-section']}>
-          <div className={styles['products-header']}>
+          <div className={styles['page-header']}>
             <h1>Men's Clothing</h1>
+            <p>Explore our stylish and comfortable collection for everyday and formal wear</p>
           </div>
 
           <div className={styles['products-grid']}>
@@ -66,7 +79,14 @@ const MensPage = () => {
                 <img src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
                 <p>₹{product.price}</p>
-                <button>Add to Cart</button>
+                <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+                  <button onClick={() => addToCart(product)}>Add to Cart</button>
+                  {isInWishlist(product.id) ? (
+                    <button onClick={() => removeFromWishlist(product.id)}>♥</button>
+                  ) : (
+                    <button onClick={() => addToWishlist(product)}>♡</button>
+                  )}
+                </div>
               </div>
             ))}
           </div>

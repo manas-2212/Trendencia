@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
+
+// Taken help from Shashwat
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = ["/V1.jpg", "/V2.jpg", "/V3.jpg", "/V4.png"];

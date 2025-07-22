@@ -1,10 +1,10 @@
 .hero-container {
-    position: relative;
-    height: 650px;
-    overflow: hidden;
-    border-radius: 10px;
-    top: 130px;
-  }
+  position: relative;
+  height: 650px;
+  overflow: hidden;
+  border-radius: 10px;
+  top: 0p
+}
   
   .slider-wrapper {
     display: flex;

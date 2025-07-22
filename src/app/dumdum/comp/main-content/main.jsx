@@ -82,16 +82,15 @@ const Main = () => {
               <li><Link href="/mens">Men's</Link></li>
               <li><Link href="/womens">Women's</Link></li>
               <li><Link href="/kids">Kids</Link></li>
-              <li><Link href="/accessories">Accessories</Link></li>
               
             </ul>
           </div>
           <div className="footer-section">
             <h4>Follow Us</h4>
             <div className="social-icons">
-              <a href="#"><img alt="Facebook" />FB</a>
-              <a href="#"><img alt="Instagram" />IG</a>
-              <a href="#"><img alt="Twitter" />X</a>
+              <a href="#"><img src='/fb.png' alt="Facebook" />FB</a>
+              <a href="#"><img src='/ig.png' alt="Instagram" />IG</a>
+              <a href="#"><img src='/x.png' alt="Twitter" />X</a>
             </div>
           </div>
         </div>
