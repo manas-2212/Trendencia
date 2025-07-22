@@ -8,8 +8,10 @@ import { useCart } from '@/app/CartContext';
 const Nav = () => {
   const { cart } = useCart();
   const { wishlist } = useWishlist();
+
   const [showWishlist, setShowWishlist] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [initials, setInitials] = useState('U');
 
   useEffect(() => {
@@ -25,42 +27,36 @@ const Nav = () => {
     <>
       <nav className="nav-container">
         <div className="nav-left">
-          <div className="logo">Trendencia</div>
+          <Link href="/" className="logo">Trendencia</Link>
         </div>
 
-        <div className="nav-center">
-          <div className="categories">
-            <Link href="/mens" className="nav-btn">Men</Link>
-            <Link href="/womens" className="nav-btn">Women</Link>
-            <Link href="/kids" className="nav-btn">Kids</Link>
-          </div>
+        <div className={`nav-center ${mobileMenuOpen ? 'open' : ''}`}>
+          <Link href="/mens" className="nav-btn">Men</Link>
+          <Link href="/womens" className="nav-btn">Women</Link>
+          <Link href="/kids" className="nav-btn">Kids</Link>
         </div>
 
         <div className="nav-right">
-          <div className="wishlist-container">
-            <button className="wishlist-btn" onClick={() => setShowWishlist(!showWishlist)}>Wishlist</button>
-            {showWishlist && (
-              <div className="wishlist-dropdown">
-                {wishlist.length === 0 ? (
-                  <div className="empty-text">No items in wishlist</div>
-                ) : (
-                  wishlist.map(item => (
-                    <div key={item.id} className="wishlist-item">
-                      <span>{item.name}</span>
-                      <span>₹{item.price}</span>
-                    </div>
-                  ))
-                )}
-              </div>
-            )}
-          </div>
+          <button className="wishlist-btn" onClick={() => setShowWishlist(!showWishlist)}>Wishlist</button>
+          {showWishlist && (
+            <div className="wishlist-dropdown">
+              {wishlist.length === 0 ? (
+                <div className="empty-text">No items in wishlist</div>
+              ) : (
+                wishlist.map(item => (
+                  <div key={item.id} className="wishlist-item">
+                    <span>{item.name}</span>
+                    <span>₹{item.price}</span>
+                  </div>
+                ))
+              )}
+            </div>
+          )}
 
-          <div className="cart-container">
-            <Link href="/cart" className="cart-btn-wrapper">
-              <button className="cart-btn">Cart</button>
-              {cart.length > 0 && <div className="cart-badge">{cart.length}</div>}
-            </Link>
-          </div>
+          <Link href="/cart" className="cart-btn-wrapper">
+            <button className="cart-btn">Cart</button>
+            {cart.length > 0 && <div className="cart-badge">{cart.length}</div>}
+          </Link>
 
           <div className="profile-wrapper">
             <div className="profile-circle" onClick={() => setShowProfile(!showProfile)}>
@@ -72,6 +68,13 @@ const Nav = () => {
                 <Link href="/login">Logout</Link>
               </div>
             )}
+          </div>
+
+          {/* Mobile Toggle Button */}
+          <div className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <button className="toggle-btn">
+              {mobileMenuOpen ? 'Close ✕' : 'Menu ☰'}
+            </button>
           </div>
         </div>
       </nav>

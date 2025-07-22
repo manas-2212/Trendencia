@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
 
-// Taken help from Shashwat
+// help from shashwat
+
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = ["/V1.jpg", "/V2.jpg", "/V3.jpg", "/V4.png"];
@@ -15,7 +16,7 @@ const Hero = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, []);
 
   const handlePrev = () => {
     setActiveIndex(prev => (prev === 0 ? slides.length - 1 : prev - 1));

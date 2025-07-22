@@ -18,9 +18,7 @@ const CartPage = () => {
           <Link href="/" className="explore-btn">Continue Shopping</Link>
         </div>
       ) : (
-
-        /* Used GPT */
-        <> 
+        <>
           <div className="cart-items">
             {cart.map((item, index) => (
               <div key={index} className="cart-item">
@@ -52,6 +50,3 @@ const CartPage = () => {
 };
 
 export default CartPage;
-
-
-
