@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap');
 
 
-.body {
-  background-color: #e6f0ff;
-  background-image: repeating-radial-gradient(circle at 0 0, #b3d1ff, #b3d1ff 1px, transparent 2px, transparent 40px);
-}
+
 
 
 .nav-container {

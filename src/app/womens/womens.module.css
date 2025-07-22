@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap');
 
 
-.body {
-  background-color: #ffe6f0;
-  background-image:
-    radial-gradient(#ffb3d9 5px, transparent 1px),
-    radial-gradient(#feb0d7 1px, transparent 1px);
-  background-position: 0 0, 25px 25px;
-  background-size: 50px 50px;
-}
 
 
 .nav-container {
