@@ -7,8 +7,8 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/login'); // Or redirect to any default page like '/(protected)'
+    router.push('/login');
   }, [router]);
 
-  return null; // Optional: loading spinner here
+  return null; 
 }

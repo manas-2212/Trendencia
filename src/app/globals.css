@@ -19,7 +19,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Reset common spacing */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -30,7 +30,7 @@ main {
   padding: 0;
 }
 
-/* Optional: Reset headers too */
+
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
