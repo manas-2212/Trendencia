@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap');
 
-body {
+.body {
   background-color: #fffbea;
   background-image: repeating-radial-gradient(circle at 0 0, #fff3b0, #fff3b0 1px, transparent 2px, transparent 40px);
 }
